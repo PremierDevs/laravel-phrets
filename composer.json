@@ -1,0 +1,36 @@
+{
+    "name": "genealabs/laravel-phrets",
+    "description": "A Laravel wrapper for PHRETS.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mike Bronner",
+            "email": "mike@genealabs.com"
+        }
+    ],
+    "require": {
+        "troydavisson/phrets": "^2.6",
+        "illuminate/support": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "GeneaLabs\\LaravelPhrets\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GeneaLabs\\LaravelPhrets\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GeneaLabs\\LaravelPhrets\\Providers\\Service"
+            ],
+            "alias": {
+                
+            }
+        }
+    }
+}
