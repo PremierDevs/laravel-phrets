@@ -1,10 +1,11 @@
 <?php namespace GeneaLabs\LaravelPhrets\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Support\DeferrableProvider; // Not used till needed
 use PHRETS\Configuration;
 use PHRETS\Session;
 
-class Service extends ServiceProvider
+class PhretsServiceProviderService extends ServiceProvider implements DeferrableProvider
 {
     protected $defer = true;
 
@@ -29,7 +30,7 @@ class Service extends ServiceProvider
                 if (! app()->environment("production")) {
                     $configuration->setLoginUrl($config["staging-login-url"]);
                 }
-
+                \PHRETS\Http\Client::set(new \GuzzleHttp\Client); 
                 $phrets = new Session($configuration);
 
                 if (config("app.debug") === true) {
